@@ -1,0 +1,730 @@
+!DOCTYPE html
+html lang=es
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleDra. Suzel Gómez Jiménez  Emprendimiento y Calidadtitle
+    
+    link rel=preconnect href=httpsfonts.googleapis.com
+    link rel=preconnect href=httpsfonts.gstatic.com crossorigin
+    link href=httpsfonts.googleapis.comcss2family=Loraital,wght@0,400;0,600;1,400&family=Montserratwght@300;400;600;700&display=swap rel=stylesheet
+    
+    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.4.0cssall.min.css
+
+   style
+     --- SE MANTIENEN LOS ESTILOS ORIGINALES --- 
+    root {
+        --verde-profundo #1F6F5C;
+        --azul-academia #1C3D5A;
+        --turquesa #3FA7A3;
+        --arena #E6D5B8;
+        --blanco #ffffff;
+        --gris-fondo #F8F9FA;
+        --texto-principal #333333;
+        --texto-secundario #666666;
+        --sombra-suave 0 4px 20px rgba(28, 61, 90, 0.08);
+    }
+
+     { margin 0; padding 0; box-sizing border-box; }
+    body { font-family 'Montserrat', sans-serif; color var(--texto-principal); background-color var(--gris-fondo); line-height 1.6; }
+    h1, h2, h3, h4 { font-family 'Lora', serif; }
+    a { text-decoration none; transition 0.3s; }
+    ul { list-style none; }
+    section { padding 5rem 5%; }
+    .container { max-width 1200px; margin 0 auto; }
+
+    .section-title { text-align center; color var(--azul-academia); font-size 2.2rem; margin-bottom 3rem; position relative; }
+    .section-titleafter { content ''; display block; width 60px; height 3px; background var(--turquesa); margin 10px auto 0; }
+
+    .navbar { background rgba(28, 61, 90, 0.95) !important; padding 1rem 5%; display flex; justify-content space-between; align-items center; position sticky; top 0; z-index 1000; box-shadow 0 4px 6px rgba(0,0,0,0.1); }
+    .logo { color #ffffff !important; font-size 1.2rem; font-weight 700; letter-spacing 1px; }
+    .nav-links { display flex; gap 20px; }
+    .nav-links a { color #ffffff !important; font-weight 500; opacity 0.9; }
+    .nav-links ahover { color var(--turquesa) !important; opacity 1; }
+
+    .hero { background linear-gradient(135deg, var(--verde-profundo) 0%, var(--azul-academia) 100%); color var(--blanco); padding 8rem 5% 5rem; display flex; align-items center; justify-content space-between; min-height 80vh; position relative; }
+    .hero-text { flex 1; max-width 600px; padding-right 20px; }
+    .hero-text h1 { font-size 3rem; line-height 1.2; margin-bottom 1rem; }
+    .hero-text h2 { font-size 1.3rem; color var(--arena); margin-bottom 2rem; }
+    .btn-cta { display inline-block; background var(--turquesa); color var(--blanco); padding 12px 35px; border-radius 50px; font-weight 700; margin-top 30px; }
+    .hero-img-box img { width 300px; height 300px; object-fit cover; border-radius 50%; border 5px solid var(--arena); }
+
+    .about-section { background-color var(--blanco); padding 5rem 5%; }
+    .lead-text { font-size 1.1rem; text-align justify; max-width 900px; margin 0 auto 1.5rem; line-height 1.8; color var(--texto-secundario); }
+    .academic-links { display flex; justify-content center; gap 10px; flex-wrap wrap; margin-top 2rem; }
+    .link-badge { padding 8px 18px; border-radius 50px; color white; font-size 0.85rem; transition 0.3s; display flex; align-items center; gap 8px; font-weight 600; }
+    .link-badge.uv { background var(--verde-profundo); }
+    .link-badge.orcid { background #A6CE39; }
+    .link-badge.research { background #00CCBB; }
+    .link-badge.scholar { background #4285F4; }
+    .link-badge.rizoma { background #673AB7; }
+
+    .pubs-grid { display grid; grid-template-columns repeat(auto-fit, minmax(300px, 1fr)); gap 2rem; }
+    .pub-card { background white; border-radius 12px; overflow hidden; display flex; flex-direction column; border 1px solid #eee; height 100%; box-shadow var(--sombra-suave); transition 0.3s; }
+    .pub-cardhover { transform translateY(-5px); }
+    .pub-header { padding 1.5rem; color white; text-align center; font-size 2rem; }
+    .pub-body { padding 1.5rem; flex 1; display flex; flex-direction column; }
+    .pub-body h4 { font-size 1rem; margin-bottom 10px; color var(--azul-academia); }
+    .pub-meta { margin-top auto; border-top 1px solid #eee; padding-top 15px; color var(--verde-profundo); font-size 0.8rem; font-weight bold; }
+
+    .news-grid { display grid; grid-template-columns repeat(auto-fit, minmax(320px, 1fr)); gap 2.5rem; }
+    .news-card { background white; border-radius 15px; overflow hidden; box-shadow var(--sombra-suave); transition 0.3s; border 1px solid #eee; }
+    .news-img { height 200px; background var(--azul-academia); position relative; overflow hidden; display flex; align-items center; justify-content center; color white; font-size 3rem;}
+    .news-img img { width 100%; height 100%; object-fit cover; }
+    .news-date { position absolute; top 15px; left 15px; background var(--turquesa); color white; padding 5px 12px; border-radius 20px; font-size 0.8rem; font-weight 700; z-index 10; }
+    .news-content { padding 1.5rem; }
+    .news-content h3 { font-size 1.2rem; margin-bottom 10px; }
+    .source-badge { font-size 0.8rem; color var(--verde-profundo); margin-bottom 10px; display block; }
+
+    footer { background var(--azul-academia); color var(--arena); text-align center; padding 3rem; }
+    .fade-up { opacity 0; transform translateY(30px); transition 0.8s ease-out; }
+    .fade-up.visible { opacity 1; transform translateY(0); }
+
+    @media (max-width 768px) {
+        .hero { flex-direction column-reverse; text-align center; padding-top 6rem; }
+        .hero-text { padding-right 0; margin-top 2rem; }
+        .nav-links { display none; }
+    }
+style
+head
+body
+
+    nav class=navbar
+        div class=logo
+            i class=fas fa-seedlingi Emprendimiento con propósito
+        div
+        div class=nav-links
+            a href=#inicioInicioa
+            a href=#publicacionesPublicacionesa
+            a href=#noticiasNoticiasa
+        div
+    nav
+
+    header id=inicio class=hero
+        div class=hero-text fade-up
+            h1Dra. Suzel Gómez Jiménezh1
+            h2Educación, innovación y calidad con impacto socialh2
+            div class=hero-quote
+                Ciencia aplicada, emprendimiento con propósito y auditoría de calidad para transformar realidades desde la universidad y la sociedad.
+            div
+            a href=#quien-soy class=btn-cta
+                Conocer Trayectoria i class=fas fa-arrow-downi
+            a
+        div
+        div class=hero-img-box fade-up
+            img src=httpsi1.rgstatic.netiiprofile.image11431281170801853-1687879281621_Q512Suzel-Gomez.jpg alt=Dra. Suzel Gómez Jiménez class=profile-img
+        div
+    header
+
+    section id=quien-soy class=about-section
+        div class=container
+            h2 class=section-titleQuién Soyh2
+            div class=about-text fade-up
+                p class=lead-text
+                    strongDoctora en Administración y Desarrollo Empresarial, Maestra en Auditoría y Licenciada en Contaduría.strong [cite 9] 
+                    Académica de la Universidad Veracruzana con trayectoria en la formación de emprendedores, la innovación educativa y la auditoría de calidad, con énfasis en el impacto social, la sostenibilidad y la cultura de paz. [cite 10]
+                p
+                p class=lead-text
+                    Mi trabajo integra la educación financiera, la divulgación científica aplicada y la gestión institucional, participando en proyectos interdisciplinarios, así como en procesos de auditoría y mejora continua en el sector público y educativo. [cite 11] 
+                    Desarrollo proyectos orientados a la formación de capital humano desde la infancia hasta la vida profesional, promoviendo una ciencia accesible, ética e incluyente. [cite 12]
+                p
+                div class=academic-links
+    a href=httpswww.uv.mxpersonalsuzgomez class=link-badge uv target=_blanki class=fas fa-universityi Sitio UVa
+    a href=httpsorcid.org0009-0001-9308-2441 class=link-badge orcid target=_blanki class=fab fa-orcidi ORCIDa
+    a href=httpswww.researchgate.netprofileSuzel-Gomez-Jimenez class=link-badge research target=_blanki class=fab fa-researchgatei ResearchGatea
+    a href=httpsscholar.google.comcitationsuser=j6P6xT4AAAAJ&hl=es class=link-badge scholar target=_blanki class=fab fa-googlei Scholara
+div
+            div
+        div
+    section
+
+    section id=ejes class=pubs-section
+        div class=container
+            h2 class=section-titleEjes de Trabajoh2
+            div class=pubs-grid
+                div class=pub-card fade-up
+                    div class=pub-header style=background-color var(--turquesa);
+                        i class=fas fa-lightbulbi
+                    div
+                    div class=pub-body
+                        h4Emprendimiento con propósito e impacto socialh4
+                        p style=font-size 0.9rem; color #666;Proyectos orientados a la formación emprendedora y financiera de niñas, niños, jóvenes y mujeres. [cite 22]p
+                        ul style=margin 15px 0; font-size 0.85rem; color #555; list-style disc; padding-left 20px;
+                            liFerias de emprendedores [cite 24]li
+                            liConcursos de emprendimiento juvenil [cite 25]li
+                            liEmprendimiento infantil [cite 26]li
+                        ul
+                        div class=pub-meta
+                            a href=# target=_blank style=color var(--verde-profundo);Ver Evidencias i class=fab fa-facebookia
+                        div
+                    div
+                div
+
+                div class=pub-card fade-up
+                    div class=pub-header style=background-color var(--verde-profundo);
+                        i class=fas fa-microscopei
+                    div
+                    div class=pub-body
+                        h4Ciencia aplicada y divulgación interdisciplinariah4
+                        p style=font-size 0.9rem; color #666;Iniciativas de divulgación científica y educación STEAM integrando ciencia, tecnología y valores. [cite 31]p
+                        ul style=margin 15px 0; font-size 0.85rem; color #555; list-style disc; padding-left 20px;
+                            liDivulgación para la infancia [cite 34]li
+                            liProyectos STEAM e Inclusión [cite 35, 39]li
+                            liColaboración con Ingeniería [cite 36]li
+                        ul
+                        div class=pub-meta
+                            a href=# target=_blank style=color var(--verde-profundo);Talleres y Proyectos i class=fab fa-facebookia
+                        div
+                    div
+                div
+
+                div class=pub-card fade-up
+                    div class=pub-header style=background-color var(--azul-academia);
+                        i class=fas fa-check-doublei
+                    div
+                    div class=pub-body
+                        h4Auditoría de calidad y sostenibilidadh4
+                        p style=font-size 0.9rem; color #666;Evaluación institucional y mejora continua en el sector público y educativo bajo normas ISO. [cite 43, 133]p
+                        ul style=margin 15px 0; font-size 0.85rem; color #555; list-style disc; padding-left 20px;
+                            liAuditorías internas UV [cite 45]li
+                            liSistemas de Gestión de Calidad [cite 46]li
+                            liCultura de paz [cite 49]li
+                        ul
+                        div class=pub-meta
+                            a href=# target=_blank style=color var(--verde-profundo);Evidencia Institucional i class=fab fa-facebookia
+                        div
+                    div
+                div
+            div
+        div
+    section
+
+  section id=publicaciones class=pubs-section
+    div class=container
+        h2 class=section-titlePublicaciones e Investigaciónh2
+        div class=pubs-grid
+
+            a href=httpswww.researchgate.netpublication370607282_El_capital_intelectual_como_estrategia_de_la_emprendeduria_de_negocios target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--azul-academia);
+                    i class=fas fa-booki
+                div
+                div class=pub-body
+                    h4El capital intelectual como estrategia en la emprendeduría de negociosh4
+                    pGómez Jiménez, Gazca Herrera, Olivera Carrascosap
+                    div class=pub-meta
+                        spanLibro (2013)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607358_Resultados_del_modelo_de_intervencion_con_microempresarios_del_Municipio_de_Teocelo_Veracruz target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Resultados del modelo de intervención con microempresarios de Teocelo, Veracruzh4
+                    pParra Uscanga, Hernández Trejo, Gómez Jiménezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2013)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607201_Modelo_de_intervencion_con_microempresarios_del_municipio_de_Teocelo_Veracruz target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Modelo de intervención con microempresarios del municipio de Teoceloh4
+                    pParra Uscanga, Hernández Trejo, Gómez Jiménezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2013)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607390_Las_competencias_laborales_como_estrategia_de_innovacion_educativa_en_la_Facultad_de_Contaduria_y_Administracion_region_Xalapa_Universidad_Veracruzana target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--turquesa);
+                    i class=fas fa-newspaperi
+                div
+                div class=pub-body
+                    h4Las competencias laborales como estrategia de innovación educativa en la FCAh4
+                    pGómez Jiménez, Navarro Dominguez y cols.p
+                    div class=pub-meta
+                        spanArtículo (2013)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607494_El_programa_de_brigadas_universitarias_empresariales_en_la_facultad_de_Contaduria_y_Administracion_en_la_formacion_integral_del_licenciado_en_Administracion target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--turquesa);
+                    i class=fas fa-newspaperi
+                div
+                div class=pub-body
+                    h4El programa brigadas universitarias empresariales en la formación integralh4
+                    pGómez Jiménez, Parra Uscanga y cols.p
+                    div class=pub-meta
+                        spanArtículo (2013)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607458_Estrategia_de_fortalecimiento_del_perfil_de_egreso_en_los_estudiantes_de_la_Facultad_de_Contaduria_y_Administracion_de_la_Uv target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Estrategia de fortalecimiento del perfil de egreso en estudiantes FCA UVh4
+                    pParra Uscanga, Navarro Dominguez, Gómez Jiménezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2014)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication318025189_Proyecto_de_administracion_estrategica_con_un_enfoque_de_RSE_dirigido_a_la_Facultad_de_Contaduria_y_Administracion_Region_Xalapa_de_la_Universidad_Veracruzana target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Proyecto de administración estratégica con un enfoque de RSE en la FCAh4
+                    pMartínez Herrera, Gómez Jiménez, Mejía Graciap
+                    div class=pub-meta
+                        spanCapítulo de libro (2015)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication329982622_JUGANDO_CON_LA_QUIMICA_Y_EL_EMPRENDIMIENTO_UNA_PROPUESTA_LUDICA_PARA_EL_FOMENTO_DE_LA_CULTURA_DE_EMPRENDIMIENTO_EN_NINOS_DE_PRIMARIA target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-flaski
+                div
+                div class=pub-body
+                    h4Jugando con la química y el emprendimiento Una propuesta lúdicah4
+                    pSoto Ojeda, Gómez Jiménez, Arieta Melgarejop
+                    div class=pub-meta
+                        spanCapítulo de libro (2018)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607467_Vision_integral_y_global_de_la_auditoria_ante_un_entorno_de_retos_y_oportunidades target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Importancia del control interno en los despachos contablesh4
+                    pSuzel Gómez Jiménezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2019)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607206_DISENO_DE_UN_MODELO_DE_EMPRENDIMIENTO_PARA_LA_UNIVERSIDAD_VERACRUZANA_A_PARTIR_DEL_ESTUDIO_DE_LAS_TEORIAS_DEL_EMPRENDIMIENTO_Y_LA_REALIZACION_DE_UN_DIAGNOSTICO_QUE_MIDE_EL_PERFIL_EMPRENDEDOR target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--azul-academia);
+                    i class=fas fa-booki
+                div
+                div class=pub-body
+                    h4Diseño de un modelo de emprendimiento para la Universidad Veracruzanah4
+                    pGómez Jiménez, Martínez Herrera, Mejía Graciap
+                    div class=pub-meta
+                        spanLibro (2019)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication368756397_Certificaciones_objetivas_y_transparentes_para_playas target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Certificaciones objetivas y transparentes para playash4
+                    pGómez Jiménez, Arieta Melgarejo y cols.p
+                    div class=pub-meta
+                        spanCapítulo de libro (2020)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370607472_Artesano_Veracruzano target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--azul-academia);
+                    i class=fas fa-booki
+                div
+                div class=pub-body
+                    h4Artesano Veracruzanoh4
+                    pCastillo Salas, Ceballos Grajales, Gómez Jiménezp
+                    div class=pub-meta
+                        spanLibro (2021)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+             a href=httpswww.researchgate.netpublication370607477_Procedimiento_de_auditoria_gubernamental_municipal_aplicados_a_los_recursos_de_la_Ley_de_Ingresos target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Procedimientos de auditoría gubernamental a recursos de la Ley de Ingresosh4
+                    pGómez Jiménez, Ramos Angelesp
+                    div class=pub-meta
+                        spanCapítulo de libro (2023)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=# class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4La auditoría ambiental como herramienta de control en ingenio azucareroh4
+                    pAguilar Castillo, Gómez Jiménez, Contreras Duránp
+                    div class=pub-meta
+                        spanCapítulo de libro (2022)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication370288397_Pensar_las_Organizaciones_Una_Mirada_Multidimensional target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Hacia un Mundo Digital Inclusivo e Igualitario en las Organizacionesh4
+                    pGómez Jiménez, Arieta Melgarejo y cols.p
+                    div class=pub-meta
+                        spanCapítulo de libro (2022)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication397273375_Percepcion_de_la_sostenibilidad_en_la_Universidad_Veracruzana_Mexico target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Percepción de la sostenibilidad en la Universidad Veracruzanah4
+                    pGómez Jiménez, López Lunagómez, Arieta Melgarejop
+                    div class=pub-meta
+                        spanCapítulo de libro (2024)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpdx.doi.org10.180412539-3669gestionlibre.17.2024.11765 target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--turquesa);
+                    i class=fas fa-newspaperi
+                div
+                div class=pub-body
+                    h4Entorno laboral de las Mipymes Xalapeñas malestares y entornos saludablesh4
+                    pArieta Melgarejo, Gómez Jiménez, López Lunagómezp
+                    div class=pub-meta
+                        spanArtículo (2024)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpdx.doi.org10.25009is.v0i18.2913 target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--turquesa);
+                    i class=fas fa-newspaperi
+                div
+                div class=pub-body
+                    h4Construyendo paz en el ciberespacio académicoh4
+                    pArieta Melgarejo, Gómez Jiménez, López Lunagómezp
+                    div class=pub-meta
+                        spanArtículo (2024)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication397264046_Fortalecimiento_del_ecosistema_emprendedor_en_Veracruz_analisis_de_metodologias_internacionales_y_su_implementacion_en_politicas_publicas target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Fortalecimiento del ecosistema emprendedor en Veracruzh4
+                    pGómez Jiménez, Arieta Melgarejo, López Lunagómezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2024)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication397263854_Diseno_de_politicas_publicas_para_un_aprendizaje_sustentable_promoviendo_habitos_de_higiene_digital target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Políticas públicas para un aprendizaje sustentable e higiene digitalh4
+                    pArieta Melgarejo, Gómez Jiménez, López Lunagómezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2024)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpsdoi.org10.32776EyC.v13i62.799 target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--turquesa);
+                    i class=fas fa-newspaperi
+                div
+                div class=pub-body
+                    h4Fomentando la paz digital desde la academia estrategias contra la rupturah4
+                    pArieta Melgarejo, Gómez Jiménez, López Lunagómezp
+                    div class=pub-meta
+                        spanArtículo (2024)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication397263914_Emprendimiento_evolucion_y_tendencias_de_su_literatura_cientifica_Un_analisis_bibliometrico target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-bookmarki
+                div
+                div class=pub-body
+                    h4Emprendimiento evolución y tendencias. Análisis bibliométricoh4
+                    pLópez Lunagómez, Arieta Melgarejo, Gómez Jiménezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2025)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication397256799_Historia_y_Actualidad_del_Sistema_Universitario_de_Mejora_Empresarial_Sume_de_la_Universidad_Veracruzana target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-historyi
+                div
+                div class=pub-body
+                    h4Historia y Actualidad del Sistema Universitario de Mejora Empresarial (SUME)h4
+                    pGómez Jiménez, Martínez Herrera, Olivares Ruizp
+                    div class=pub-meta
+                        spanCapítulo de libro (2025)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+            a href=httpswww.researchgate.netpublication397256767_Ambientes_educativos_sustentables_y_saludables_Ergonomia_tecnologica_en_la_vida_escolar_universitaria target=_blank class=pub-card fade-up
+                div class=pub-header style=background-color var(--verde-profundo);
+                    i class=fas fa-desktopi
+                div
+                div class=pub-body
+                    h4Ambientes educativos sustentables Ergonomía tecnológica escolarh4
+                    pArieta Melgarejo, Gómez Jiménez, López Lunagómezp
+                    div class=pub-meta
+                        spanCapítulo de libro (2025)span
+                        i class=fas fa-external-link-alti
+                    div
+                div
+            a
+
+        div
+    div
+section
+
+section id=noticias class=news-section
+    div class=container
+        h2 class=section-titleNoticias y Eventosh2
+        div class=news-grid
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date13 Ene 2026span
+                    img src=httpsscontent.fjal2-1.fna.fbcdn.netvt39.30808-6517121731_24884874981112284_9138843441871714385_n.jpgstp=cp6_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGQ99rtN5QjRTF76YbWofSmxUFTKMF9X1jFQVMowX1fWFc6LHgVswGyIcQTa3pxtHOcSyjwJcTz3GZtglgF2Dmx&_nc_ohc=aqsoaz3zBcsQ7kNvwEfOLVs&_nc_oc=AdlfEWlBJFxUyAGB7tMWM3_FUwR_MiAagyG4fFp2W9uIXblhJdSIl7JoHRKh7-AnVP3BxdzrVpzE5xxuMrikuDDV&_nc_zt=23&_nc_ht=scontent.fjal2-1.fna&_nc_gid=xo-VDy8N0wg2COxFblbyVg&oh=00_Aft4zGUS3D7zu9yGUsuqm3vXGqN7qT11JeroNwINIQ7O_g&oe=69893CE6 alt=Presentación de Libro
+                div
+                div class=news-content
+                    h3Participación en libro de Políticas Públicash3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    [cite_start]pCoautora en la obra “Propuestas de políticas públicas estratégicas para el progreso de Veracruz” enfocada en emprendimiento[cite 68, 70, 71].p
+                    a href=httpswww.facebook.comdaniel.l.lunagomezpostspfbid02HBAZBpZBPtWFAjRenbyL4srp6gbMGRg4MfDeL4CFsbBztEoeSd8FDMzAYds4NQvSl target=_blank class=news-linkVer publicación i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date03 Dic 2025span
+                    img src=httpsscontent.fjal2-1.fna.fbcdn.netvt39.30808-6593881283_1319439110228187_3637545126516077156_n.jpg_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEHKr5n0cISeL1ZXODV_cQRTVwq82_qeQlNXCrzb-p5CT1b4TrRY20DrgG6S58fQzau27_E3j2N6QYh94x5HtQj&_nc_ohc=aeupTIOw_RsQ7kNvwHPxK1l&_nc_oc=AdlxmShJ_Rnm2wQja0SWk0yeYS9-o16Em1LSCvh_YQa8t0zSIVjCFvi8oEH6mJNicsHbPbVF-ya4Yt9XrGlofrh7&_nc_zt=23&_nc_ht=scontent.fjal2-1.fna&_nc_gid=1SB2glsDfIexJAoycj8Otw&oh=00_AfomOD_kU0lz_kN49MEFsAqdnDmI0xXdvzXBhI5jFhih1A&oe=698205FE
+                div
+                div class=news-content
+                    h3Inicio del Congreso Accesciencia 2025h3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    Participación en el congreso organizado por COVEICYDET para promover prácticas incluyentes en ciencia y tecnología.p
+                    a href=httpswww.facebook.comsuzelgjpostspfbid02sidEAzopB8xkSLG2EqjPip9kaixiDZm8n28j6SQnRG3guUApkALeD44tGj4i5azrl target=_blank class=news-linkLeer más i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date13 Nov 2025span
+                    img src=httpsvia.placeholder.com400x2501C3D5Afffffftext=Encuentro+Internacional alt=Encuentro Emprendimiento
+                div
+                div class=news-content
+                    h3Sexto Encuentro Internacional de Emprendimientoh3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    pCelebrando el talento de estudiantes de Colombia, Ecuador, Perú y México. [cite_start]Reconocimiento a proyectos finalistas “Saludix” y “Naranjitas mágicas”[cite 119, 122, 125].p
+                    a href=httpswww.facebook.comsuzelgjpostspfbid0233sWpeB2bzLPG95KvpunV9pG6ZyRt1SXC99XBepcJJj4Z8FkavjKyB9YMkszJipil target=_blank class=news-linkVer detalles i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date13 Nov 2025span
+                    img src=httpsvia.placeholder.com400x2503FA7A3fffffftext=Auditoria+360 alt=Auditoría 360
+                div
+                div class=news-content
+                    h3Aprendizaje en Auditorías 360° a SGCh3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    [cite_start]pActualización de competencias como auditores internos del Sistema de Gestión de Calidad UV bajo normas ISO[cite 129, 131, 133].p
+                    a href=httpswww.facebook.comsuzelgjpostspfbid0vMdUxA6EFZoLXYcmtN5VAGh8LH1o7FkUPYtixQ5nLAefWpciiBgxVS2Rwv3GXbarl target=_blank class=news-linkVer nota i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date06 Nov 2025span
+                    img src=httpsvia.placeholder.com400x2501F6F5Cfffffftext=Conferencia+Internacional alt=Conferencia Posgrados
+                div
+                div class=news-content
+                    h3Conferencia Emprendimiento con Propósitoh3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    [cite_start]pPonente en el VI Encuentro Internacional de Posgrados (Colombia) con el tema “Del problema a la oportunidad”[cite 112, 114, 115].p
+                    a href=httpswww.facebook.comsuzelgjpostspfbid02fnLo93uMQ3EgryCbaRsE6BAkUTZkVPTjjDzzqUqKzeeRry85zRMU4k1ZtxKCUV9Pl target=_blank class=news-linkVer conferencia i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date07 Oct 2025span
+                    img src=httpsvia.placeholder.com400x2501C3D5Afffffftext=Mujeres+que+Transforman alt=Mujeres que transforman
+                div
+                div class=news-content
+                    h3Cuestionario Mujeres que transformanh3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    [cite_start]pInvitación a empresarias para compartir experiencias y necesidades de formación, impulsando el emprendimiento femenino[cite 104, 106, 107].p
+                    a href=httpswww.facebook.comphotofbid=10231987102681946&set=a.1370131894884 target=_blank class=news-linkParticipar i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date18 Ago 2025span
+                    img src=httpsvia.placeholder.com400x2503FA7A3fffffftext=Clase+Espejo alt=Clase Espejo
+                div
+                div class=news-content
+                    h3Clase Espejo UV - Universidad Libre Colombiah3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    [cite_start]pSesión “Emprende con propósito y crea tu marca personal”, fortaleciendo la vinculación internacional[cite 90, 94, 96].p
+                div
+            article
+
+              article class=news-card fade-up
+                div class=news-img
+                    span class=news-date23 Abr 2025span
+                    img src=CUsersAdrianDownloadsPagina web alt=Reconocimiento Design Thinking
+                div
+                div class=news-content
+                    h3Reconocimiento Innovación Educativah3
+                    p class=source-badgei class=fas fa-universityi FCA Xalapap
+                    [cite_start]pReconocimiento por impartir el curso-taller “Design Thinking para la innovación educativa” al personal de la Universidad de Oriente[cite 78, 80, 81].p
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date24 Abr 2025span
+                    img src=httpsvia.placeholder.com400x2501F6F5Cfffffftext=Auditoria+Interna alt=Auditoría Interna
+                div
+                div class=news-content
+                    h3Cierre de auditoría interna en la UVh3
+                    p class=source-badgei class=fas fa-user-circlei Suzel Gómez Jiménezp
+                    [cite_start]pFinalización exitosa del proceso que fortalece la mejora continua y la cultura de calidad institucional[cite 84, 86, 88].p
+                    a href=httpswww.facebook.comsuzelgjpostspfbid08mDVikwQi5HJPs9N2ZX25sGondfbBZQhvwiSfqiE99gNqMJLRMeufE5kBbkowCJzl target=_blank class=news-linkVer publicación i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date13 Ene 2025span
+                    img src=httpsscontent.fjal2-1.fna.fbcdn.netvt39.30808-6616043290_1754038762670021_4397475008242348434_n.jpg_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFI3ua2G6IudZPHYfLgrg0VOYfGTOSj-1A5h8ZM5KP7UGjTI2Yi6OJYP7pdWsPvNnb_jbXI4Va91S3165lP3y5Z&_nc_ohc=Y7Sk3v8Tz-IQ7kNvwFwaWjE&_nc_oc=Adm0E_B7sP0iNSq5ogC7qC_-1Vff8vv2_YaU7mQBBJlj_3AFDv6bPnao6PfR8jxudqHNLH-Z48t7isjQvRLYmnGU&_nc_zt=23&_nc_ht=scontent.fjal2-1.fna&_nc_gid=wODVeylq7wlBXpEILsjFKQ&oh=00_Afrj0G5f066o78EDHRSIg6Pt0VRxcQt1kJYESuz3wbuSNg&oe=6981E9CD alt=Competencias de emprendimiento alt=Logros FCA
+                div
+                div class=news-content
+                    h3La FCA brilla en competencias de emprendimientoh3
+                    p class=source-badgei class=fas fa-universityi FCA Xalapap
+                    pOrgullo por los resultados de estudiantes y académicos en concursos de alto nivel (NEMI y otros)[cite 144, 146, 149].p
+                    a href=httpswww.facebook.comphotofbid=1754038759336688&set=a.820404402700133 target=_blank class=news-linkVer logros i class=fas fa-arrow-rightia
+                div
+            article
+
+            article class=news-card fade-up
+                div class=news-img
+                    span class=news-date19 Nov 2024span
+                    img src=httpsscontent.fjal2-1.fna.fbcdn.netvt39.30808-6492011974_1513758173364749_2197767578473490781_n.jpg_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHC4QG6XsnEDLn0ydj53vLHDIUX1P2jqrYMhRfU_aOqtqyXMdo0FFcbQjEAEqc1o0bMW0BdhNaUZ4sqCjzjofjn&_nc_ohc=_ZARPH3ePwkQ7kNvwH9COpm&_nc_oc=Adko6fca34GIJ81M41krXmI64RfC7xSQAqlXtevxuoPXqlGOcFjSUXE_hcMV8lPXcQR7p8DVO1Rz7mKXiwkxc3lS&_nc_zt=23&_nc_ht=scontent.fjal2-1.fna&_nc_gid=dCPhJxSzMd3wfi_FHQX2XQ&oh=00_AfvfdhG5S_ePVtWR1Jh4OxPlwMugqcl7v3Sgw2zsBk6hJQ&oe=69893FA6 alt=Campaña Solidaria
+                div
+                div class=news-content
+                    h3¡La FCA se une por una causa solidaria!h3
+                    p class=source-badgei class=fas fa-universityi FCA Xalapap
+                    [cite_start]pCampaña de recolección de ropa y juguetes para la comunidad de San Marcos Atesquilapan[cite 52, 56, 57].p
+                    a href=httpswww.facebook.comphotofbid=1383654026375165&set=a.820404402700133 target=_blank class=news-linkVer campaña i class=fas fa-arrow-rightia
+                div
+            article
+
+        div
+    div
+section
+
+    footer
+        p&copy; 2025 Dra. Suzel Gómez Jiménez  Universidad Veracruzanap
+        p style=font-size 0.9rem; margin-top 10px; opacity 0.8;Educación, Innovación y Calidad con Impacto Socialp
+        div class=footer-links style=margin-top 20px;
+            a href=httpswww.researchgate.netprofileSuzel-Gomez-Jimenez style=color white; margin 0 10px;i class=fab fa-researchgateia
+            a href=# style=color white; margin 0 10px;i class=fab fa-orcidia
+            a href=# style=color white; margin 0 10px;i class=fas fa-envelopeia
+        div
+    footer
+
+    script
+        document.addEventListener('DOMContentLoaded', () = {
+            const observer = new IntersectionObserver((entries) = {
+                entries.forEach(entry = {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold 0.1 });
+
+            document.querySelectorAll('.fade-up').forEach(el = observer.observe(el));
+            
+            document.querySelectorAll('a[href^=#]').forEach(anchor = {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior 'smooth'
+                    });
+                });
+            });
+        });
+    script
+body
+html
